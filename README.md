@@ -25,3 +25,16 @@ If you need additional support, please navigate to the course page and reach out
 ## FUTURE USE
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
 
+## Rubric Sections
+This section will be used to annotate what changes were made as a supplement to the repository graph history.
+Changes will be made in numerical order with the following format: file(s) changed/added, lines affected/added, changes/additions made.
+
+C.  Construct four new packages, one for each of the following: controllers, entities, dao, and services. 
+The packages will need to be used for a checkout form and vacations packages list.
+
+Note: The packages should be on the same level of the hierarchy.
+
+Note: Construct a package named config and copy the RestDataConfig.java provided in the laboratory environment to the package. Modify it so that the package and imports have the correct package and import addresses. Copy the application.properties file that is provided in the laboratory environment into your application properties resource file.
+1) Create 5 packages: config, controllers, dao, entities, and services.
+2) Update config package: Add RestDataConfig.java file to config package.
+3) Update application.properties: Add data to application.properties file.
