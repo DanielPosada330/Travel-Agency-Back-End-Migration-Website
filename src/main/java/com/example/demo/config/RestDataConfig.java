@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import edu.wgu.d288_backend.entities.*;
+import com.example.demo.entities.*;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -21,11 +21,11 @@ public class RestDataConfig implements RepositoryRestConfigurer {
 
     /**
      * This method exposes standard rest api end points for the following classes:
-     * Country
-     * Customer
-     * Division
-     * Excursion
-     * Vacation
+     * Countries
+     * Customers
+     * Divisions
+     * Excursions
+     * Vacations
      * <p>
      * Set page configuration parameters
      *
@@ -34,11 +34,11 @@ public class RestDataConfig implements RepositoryRestConfigurer {
      */
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
-        config.exposeIdsFor(Country.class);
-        config.exposeIdsFor(Customer.class);
-        config.exposeIdsFor(Division.class);
-        config.exposeIdsFor(Excursion.class);
-        config.exposeIdsFor(Vacation.class);
+        config.exposeIdsFor(Countries.class);
+        config.exposeIdsFor(Customers.class);
+        config.exposeIdsFor(Divisions.class);
+        config.exposeIdsFor(Excursions.class);
+        config.exposeIdsFor(Vacations.class);
         config.setDefaultPageSize(Integer.MAX_VALUE);
         config.setMaxPageSize(Integer.MAX_VALUE);
 
