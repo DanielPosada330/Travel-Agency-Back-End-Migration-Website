@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
@@ -24,7 +25,7 @@ public class Excursions {
     @Column(name = "excursion_id")
     private BigInteger excursion_id;
 
-    @Column(name = "excursion_id")
+    @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
 
@@ -41,8 +42,13 @@ public class Excursions {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "vacation_id")
-    private BigInteger vacation_id;
+    @ManyToOne
+    @JoinColumn(name = "vacation_id", nullable = false)
+    private Vacations vacation_id;
 
-
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem",
+    joinColumns = @JoinColumn(name = "excursion_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
+    private Set<Cart_items> cart_items;
 }
