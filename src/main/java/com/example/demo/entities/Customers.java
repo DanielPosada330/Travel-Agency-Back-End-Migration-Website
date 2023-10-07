@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
@@ -46,6 +47,13 @@ public class Customers {
     @Column(name = "postal_code")
     private String postal_code;
 
-    @Column(name = "division_id")
-    private BigInteger division_id;
+    //@Column(name = "division_id")
+    //private BigInteger division_id;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers", fetch = FetchType.LAZY)
+    private Set<Carts> carts;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Divisions divisions;
 }
