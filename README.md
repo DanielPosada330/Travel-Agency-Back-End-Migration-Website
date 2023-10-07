@@ -66,6 +66,7 @@ E.  Write code for the dao package that includes repository interfaces for the e
 5) Create DivisionsRepository.java interface in dao package.
 6) Create ExcursionsRepository.java interface in dao package.
 7) Create VacationsRepository.java interface in dao package.
+8) Add cross-origin support within each of the repository.java files.
 
 
 

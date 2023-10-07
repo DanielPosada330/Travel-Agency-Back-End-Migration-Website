@@ -38,6 +38,10 @@ public class Division {
 
     @Column(name = "country_id")
     private Long country_id;
+    public void setCountry(Country country){
+        setCountry_id(country.getId());
+        this.country = country;
+    }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division", fetch = FetchType.LAZY)
     private Set<Customer> customers;
