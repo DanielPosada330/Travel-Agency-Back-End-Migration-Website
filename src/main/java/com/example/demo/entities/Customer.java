@@ -16,44 +16,44 @@ import java.util.Set;
 @Table(name = "customers")
 @Getter
 @Setter
-public class Customers {
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //private variables represent column names in SQL table
     @Column(name = "customer_id")
-    private BigInteger customer_id;
+    private Long id;
+
+    @Column(name = "customer_first_name")
+    private String firstName;
+
+    @Column(name = "customer_last_name")
+    private String lastName;
 
     @Column(name = "address")
     private String address;
+
+    @Column(name = "postal_code")
+    private String postal_code;
+
+    @Column(name = "phone")
+    private String phone;
 
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
 
-    @Column(name = "customer_first_name")
-    private String customer_first_name;
-
-    @Column(name = "customer_last_name")
-    private String customer_last_name;
-
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "postal_code")
-    private String postal_code;
-
     //@Column(name = "division_id")
     //private BigInteger division_id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customers", fetch = FetchType.LAZY)
-    private Set<Carts> carts;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
+    private Set<Cart> carts;
 
-    @ManyToOne
-    @JoinColumn(name = "division_id", nullable = false)
-    private Divisions divisions;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "division_id", nullable = false, insertable = false, updatable = false)
+    private Division division;
 }

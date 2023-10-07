@@ -13,19 +13,19 @@ import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
-@Table(name = "divisions")
+@Table(name = "countries")
 @Getter
 @Setter
-public class Divisions {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //private variables represent column names in SQL table
-    @Column(name = "division")
-    private String division;
+    @Column(name = "country_id")
+    private Long id;
 
-    @Column(name = "division_id")
-    private BigInteger division_id;
+    @Column(name = "country")
+    private String country_name;
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -35,13 +35,6 @@ public class Divisions {
     @UpdateTimestamp
     private Date last_update;
 
-    //@Column(name = "country_id")
-    //private BigInteger country_id;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "divisions", fetch = FetchType.LAZY)
-    private Set<Customers> customers;
-
-    @ManyToOne
-    @JoinColumn(name = "country_id", nullable = false)
-    private Countries countries;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country", fetch = FetchType.LAZY)
+    private Set<Division> divisions;
 }

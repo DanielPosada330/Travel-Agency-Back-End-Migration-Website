@@ -21,13 +21,16 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Carts {
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //private variables represent column names in SQL table
     @Column(name  = "cart_id")
-    private BigInteger cart_id;
+    private Long id;
+
+    @Column(name  = "order_tracking_number")
+    private String orderTrackingNumber;
 
     @Column(name  = "package_price")
     private BigDecimal package_price;
@@ -41,9 +44,6 @@ public class Carts {
     @Enumerated(EnumType.STRING)
     private StatusType status;
 
-    @Column(name  = "order_tracking_number")
-    private String order_tracking_number;
-
     @Column(name  = "create_date")
     @CreationTimestamp
     private Date create_date;
@@ -55,11 +55,11 @@ public class Carts {
     //@Column(name = "customer_id")
     //private BigInteger customer_id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts", fetch = FetchType.LAZY)
-    private Set<Cart_items> cart_items;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", fetch = FetchType.LAZY)
+    private Set<CartItem> cartItem;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
-    private Customers customers;
+    private Customer customer;
 
 }

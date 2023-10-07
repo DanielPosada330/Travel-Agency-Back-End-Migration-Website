@@ -17,37 +17,39 @@ import java.util.Set;
 @Table(name = "vacations")
 @Getter
 @Setter
-public class Vacations {
+public class Vacation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //private variables represent column names in SQL table
     @Column(name = "vacation_id")
-    private BigInteger vacation_id;
+    private Long id;
+
+    @Column(name = "vacation_title")
+    private String vacation_title;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "travel_fare_price")
+    private BigDecimal travel_price;
+
+    @Column(name = "image_url")
+    private String image_URL;
 
     @Column(name = "create_date")
     @CreationTimestamp
     private Date create_date;
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "image_url")
-    private String image_url;
-
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "travel_fare_price")
-    private BigDecimal travel_fare_price;
 
-    @Column(name = "vacation_title")
-    private String vacation_title;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
-    private Set<Cart_items> cart_items;
+    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
+    //private Set<CartItem> cart_items;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
-    private Set<Excursions> excursions;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation", fetch = FetchType.LAZY)
+    private Set<Excursion> excursions;
 }

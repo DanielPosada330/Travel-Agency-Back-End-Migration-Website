@@ -20,13 +20,13 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Cart_items {
+public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //private variables represent column names in SQL table
     @Column(name = "cart_item_id")
-    private BigInteger cart_item_id;
+    private Long id;
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -42,14 +42,14 @@ public class Cart_items {
     //@Column(name = "cart_id")
     //private BigInteger cart_id;
 
-    @ManyToMany(mappedBy = "cart_items")
-    private Set<Excursions> excursions;
+    @ManyToMany(mappedBy = "cartitems")
+    private Set<Excursion> excursions;
 
-    @ManyToOne
-    @JoinColumn(name = "cart_id", nullable = false)
-    private Carts carts;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cart_id", nullable = false, insertable = false, updatable = false)
+    private Cart cart;
 
-    @ManyToOne
-    @JoinColumn(name = "vacation_id", nullable = false)
-    private Vacations vacation_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vacation_id", nullable = false, insertable = false, updatable = false)
+    private Vacation vacation;
 }
