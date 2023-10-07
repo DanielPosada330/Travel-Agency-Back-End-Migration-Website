@@ -59,6 +59,16 @@ D.  Write code for the entities package that includes entity classes and the enu
 9) Carts.java, lines 38-42: Added enum designed to match the UML diagram and SQL database.
 
 E.  Write code for the dao package that includes repository interfaces for the entities that extend JpaRepository, and add cross-origin support.
+1) Create Cart_itemsRepository.java interface in dao package.
+2) Create CartsRepository.java interface in dao package.
+3) Create CountriesRepository.java interface in dao package.
+4) Create CustomersRepository.java interface in dao package.
+5) Create DivisionsRepository.java interface in dao package.
+6) Create ExcursionsRepository.java interface in dao package.
+7) Create VacationsRepository.java interface in dao package.
+
+
+
 
 
 F.  Write code for the services package that includes each of the following:
