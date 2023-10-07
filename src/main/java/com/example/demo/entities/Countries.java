@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
@@ -33,4 +34,7 @@ public class Countries {
     @Column(name = "last_update")
     @UpdateTimestamp
     private Date last_update;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "countries", fetch = FetchType.LAZY)
+    private Set<Divisions> divisions;
 }
