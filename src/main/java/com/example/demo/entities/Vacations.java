@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
@@ -41,6 +42,12 @@ public class Vacations {
     @Column(name = "travel_fare_price")
     private BigDecimal travel_fare_price;
 
-    @Column(name = "customer_id")
+    @Column(name = "vacation_title")
     private String vacation_title;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
+    private Set<Cart_items> cart_items;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
+    private Set<Excursions> excursions;
 }
