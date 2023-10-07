@@ -38,3 +38,49 @@ Note: Construct a package named config and copy the RestDataConfig.java provided
 1) Create 5 packages: config, controllers, dao, entities, and services.
 2) Update config package: Add RestDataConfig.java file to config package.
 3) Update application.properties: Add data to application.properties file.
+4) Create Cart_items class in entities package: class reflects cart_items table and its respective columns in SQL database.
+5) Create Carts class in entities package: class reflects cart_items table and its respective columns in SQL database.
+6) Create Countries class in entities package: class reflects cart_items table and its respective columns in SQL database.
+7) Create Customers class in entities package: class reflects cart_items table and its respective columns in SQL database.
+8) Create Divisions class in entities package: class reflects cart_items table and its respective columns in SQL database.
+9) Create Excursions class in entities package: class reflects cart_items table and its respective columns in SQL database.
+10) Create Vacations class in entities package: class reflects cart_items table and its respective columns in SQL database.
+
+D.  Write code for the entities package that includes entity classes and the enum designed to match the UML diagram.
+
+1) Carts.java, lines 55-63: Added OneToMany and ManyToOne relationships between tables and classes.
+2) Cart_items.java, lines 39-54: Added OneToMany and ManyToOne relationships between tables and classes.
+3) Vacations.java, lines 45-52: Added OneToMany and ManyToOne relationships between tables and classes.
+4) Excursions.java, lines 45-53: Added ManyToMany and ManyToOne relationships between tables and classes.
+5) Customers.java, lines 50-58: Added OneToMany and ManyToOne relationships between tables and classes.
+6) Divisions.java, lines 38-46: Added OneToMany and ManyToOne relationships between tables and classes.
+7) Countries.java, lines 37-39: Added OneToMany relationships between tables and classes.
+8) RestDataConfig.java, lines 3, 37-41: Changed import address and physical addresses.
+9) Carts.java, lines 38-42: Added enum designed to match the UML diagram and SQL database.
+
+E.  Write code for the dao package that includes repository interfaces for the entities that extend JpaRepository, and add cross-origin support.
+
+
+F.  Write code for the services package that includes each of the following:
+
+•   a purchase data class with a customer cart and a set of cart items
+
+•   a purchase response data class that contains an order tracking number
+
+•   a checkout service interface
+
+•   a checkout service implementation class
+
+
+G.  Write code to include validation to enforce the inputs needed by the Angular front-end.
+
+
+H.  Write code for the controllers package that includes a REST controller checkout controller class with a post mapping to place orders.
+
+Note: You do not need to duplicate REST functionality for each repository by creating methods in Java.
+
+
+I.  Add five sample customers to the application programmatically.
+
+
+Note: Make sure the customer information is not overwritten each time you run the application.
