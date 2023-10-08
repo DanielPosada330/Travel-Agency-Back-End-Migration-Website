@@ -87,7 +87,7 @@ G.  Write code to include validation to enforce the inputs needed by the Angular
 H.  Write code for the controllers package that includes a REST controller checkout controller class with a post mapping to place orders.
 
 Note: You do not need to duplicate REST functionality for each repository by creating methods in Java.
-
+1) Create CheckoutController.java class in Controller Package that includes post mapping to place orders.
 
 I.  Add five sample customers to the application programmatically.
 
