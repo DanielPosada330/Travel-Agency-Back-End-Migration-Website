@@ -68,20 +68,18 @@ E.  Write code for the dao package that includes repository interfaces for the e
 7) Create VacationsRepository.java interface in dao package.
 8) Add cross-origin support within each of the repository.java files.
 
-
-
-
-
 F.  Write code for the services package that includes each of the following:
 
 •   a purchase data class with a customer cart and a set of cart items
-
+1) Create Purchase.java data class that contains a customer, cart, and a set of cart items.
 •   a purchase response data class that contains an order tracking number
-
+1) Create PurchaseResponse.java data class that contains an order tracking number.
 •   a checkout service interface
-
+1) Create CheckoutService.java interface.
 •   a checkout service implementation class
-
+1) Create CheckoutServiceImpl.java class.
+2) Cart.java, lines 46, 67-77: Added column for status; added method for add to reflective changes in CheckoutServiceImpl.java
+3) Customer.java, lines 60-72: Added method for add to reflective changes in CheckoutServiceImpl.java
 
 G.  Write code to include validation to enforce the inputs needed by the Angular front-end.
 
