@@ -7,8 +7,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 //Create Cart_item table with columns
@@ -43,8 +43,8 @@ public class Division {
         this.country = country;
     }
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division", fetch = FetchType.LAZY)
-    private Set<Customer> customers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
+    private Set<Customer> customers = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)

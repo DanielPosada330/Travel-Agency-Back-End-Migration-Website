@@ -8,16 +8,14 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 
 //Create Cart_item table with columns
 @Entity
 @Table(name = "cart_items")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class CartItem {
@@ -41,18 +39,21 @@ public class CartItem {
 
     //@Column(name = "cart_id")
     //private BigInteger cart_id;
-
-    @ManyToMany
-    @JoinTable(name = "excursion_cartitem",
-            joinColumns = @JoinColumn(name = "cart_item_id"),
-            inverseJoinColumns = @JoinColumn(name = "excursion_id"))
-    private Set<Excursion> excursions;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "vacation_id", nullable = false)
+    private Vacation vacation;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vacation_id", nullable = false, insertable = false, updatable = false)
-    private Vacation vacation;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "cartitems")
+    /*@JoinTable(name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "cart_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id")) */
+    private Set<Excursion> excursions = new HashSet<>();
+
+
+
+
 }

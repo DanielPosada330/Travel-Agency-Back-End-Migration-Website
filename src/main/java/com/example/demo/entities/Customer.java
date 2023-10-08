@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 //Create Cart_item table with columns
@@ -51,9 +52,22 @@ public class Customer {
     //private BigInteger division_id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
-    private Set<Cart> carts;
+    private Set<Cart> carts = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "division_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "division_id", nullable = false)
     private Division division;
+
+    public void add(Cart cart) {
+
+        if (cart != null) {
+
+           if (carts == null) {
+               carts = new HashSet<>();
+           }
+
+           carts.add(cart);
+           cart.setCustomer(this);
+        }
+    }
 }

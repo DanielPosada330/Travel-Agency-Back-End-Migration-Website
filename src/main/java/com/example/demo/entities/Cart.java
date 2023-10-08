@@ -10,15 +10,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 //Create Cart_item table with columns
 @Entity
 @Table(name = "carts")
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
 public class Cart {
@@ -42,6 +40,7 @@ public class Cart {
         pending, ordered, canceled
     }
     @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
     private StatusType status;
 
     @Column(name  = "create_date")
@@ -55,11 +54,22 @@ public class Cart {
     //@Column(name = "customer_id")
     //private BigInteger customer_id;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", fetch = FetchType.LAZY)
-    private Set<CartItem> cartItem;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    private Set<CartItem> cartItem = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
     private Customer customer;
 
+
+    public void add(CartItem item){
+        if (item != null) {
+            if (cartItem == null) {
+                cartItem = new HashSet<>();
+            }
+
+            cartItem.add(item);
+            item.setCart(this);
+        }
+    }
 }

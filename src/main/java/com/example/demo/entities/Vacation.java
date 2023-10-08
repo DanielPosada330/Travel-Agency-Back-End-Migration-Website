@@ -8,8 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 //Create Cart_item table with columns
@@ -45,11 +45,9 @@ public class Vacation {
     @UpdateTimestamp
     private Date last_update;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<CartItem> cartItems = new HashSet<>();
 
-
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy = "vacations", fetch = FetchType.LAZY)
-    //private Set<CartItem> cart_items;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation", fetch = FetchType.LAZY)
-    private Set<Excursion> excursions;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<Excursion> excursions = new HashSet<>();
 }
