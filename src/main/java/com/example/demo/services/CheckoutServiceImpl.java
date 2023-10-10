@@ -19,7 +19,7 @@ public class CheckoutServiceImpl implements CheckoutService{
 
     //private CustomerRepository customerRepository;
 
-    private CartRepository cartRepository;
+    private final CartRepository cartRepository;
 
     //public CheckoutServiceImpl(CustomerRepository customerRepository){
         //this.customerRepository = customerRepository;
@@ -41,7 +41,7 @@ public class CheckoutServiceImpl implements CheckoutService{
         // populate cart with cartItems
         Set< CartItem> cartItems = purchase.getCartItems();
         cartItems.forEach(item -> item.setCart(cart));
-        cartItems.forEach(item -> cart.add(item));
+        cartItems.forEach(cart::add);
         // populate customer with cart
         Customer customer = purchase.getCustomer();
         customer.add(cart);

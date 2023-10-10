@@ -2,7 +2,9 @@ package com.example.demo.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -57,6 +59,16 @@ public class Customer {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "division_id", nullable = false)
     private Division division;
+
+/*
+    public Customer(String firstName, String lastName, String address, String postal_code, String phone, Division division){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postal_code = postal_code;
+        this.phone = phone;
+        this.division = division;
+    } */
 
     public void add(Cart cart) {
 

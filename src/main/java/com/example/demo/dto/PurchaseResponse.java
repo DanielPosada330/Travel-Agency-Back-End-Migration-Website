@@ -1,9 +1,12 @@
 package com.example.demo.dto;
 
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class PurchaseResponse {
-    private final String orderTrackingNumber;
+    private String orderTrackingNumber;
 }

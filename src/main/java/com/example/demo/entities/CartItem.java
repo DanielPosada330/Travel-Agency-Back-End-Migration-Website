@@ -51,7 +51,7 @@ public class CartItem {
     /*@JoinTable(name = "excursion_cartitem",
             joinColumns = @JoinColumn(name = "cart_item_id"),
             inverseJoinColumns = @JoinColumn(name = "excursion_id")) */
-    private Set<Excursion> excursions = new HashSet<>();
+    private Set<Excursion> excursions;
 
 
 

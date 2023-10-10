@@ -55,10 +55,10 @@ public class Cart {
     //private BigInteger customer_id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Set<CartItem> cartItem = new HashSet<>();
+    private Set<CartItem> cartItem;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
 
