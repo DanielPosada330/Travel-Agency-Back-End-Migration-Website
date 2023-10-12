@@ -1,4 +1,4 @@
-/*
+
 
 package com.example.demo.bootstrap;
 
@@ -23,34 +23,64 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Division SouthTexas = new Division();
-        SouthTexas.setId(1L);
+        if (customerRepository.count() < 2 ) {
 
-        Customer daniel = new Customer("Daniel", "Abel", "123 Make Believe Street", "12345", "(123)4567890", SouthTexas);
-        SouthTexas.getCustomers().add(daniel);
+            // Create new customers to be populated if only the base customer "John Doe" is in the database.
+            Division southTexas = new Division();
+            southTexas.setId(42L);
 
-        customerRepository.save(daniel);
+            // Customer 1
+            Customer juan = new Customer();
+            juan.setFirstName("Juan");
+            juan.setLastName("Ruiz");
+            juan.setAddress("123 My Street");
+            juan.setPostal_code("12345");
+            juan.setPhone("(123)4567890");
+            juan.setDivision(southTexas);
+            customerRepository.save(juan);
 
-        Customer david =  new Customer("David", "Abiel", "123 Make Believe Street", "12345", "(123)4567890", SouthTexas);
-        SouthTexas.getCustomers().add(david);
+            // Customer 2
+            Customer daniel = new Customer();
+            daniel.setFirstName("Daniel");
+            daniel.setLastName("Abel");
+            daniel.setAddress("123 Make Believe Street");
+            daniel.setPostal_code("23456");
+            daniel.setPhone("(223)4567890");
+            daniel.setDivision(southTexas);
+            customerRepository.save(daniel);
 
-        customerRepository.save(david);
+            // Customer 3
+            Customer david = new Customer();
+            david.setFirstName("David");
+            david.setLastName("Abiel");
+            david.setAddress("123 Make Believe Avenue");
+            david.setPostal_code("22222");
+            david.setPhone("(222)4567890");
+            david.setDivision(southTexas);
+            customerRepository.save(david);
 
-        Customer drogo = new Customer("Drogo", "Adel", "123 Make Believe Street", "12345", "(123)4567890", SouthTexas);
-        SouthTexas.getCustomers().add(drogo);
+            // Customer 4
+            Customer drogo = new Customer();
+            drogo.setFirstName("Drogo");
+            drogo.setLastName("Rodriguez");
+            drogo.setAddress("222 Make Believe Loop");
+            drogo.setPostal_code("33333");
+            drogo.setPhone("(333)1234567");
+            drogo.setDivision(southTexas);
+            customerRepository.save(drogo);
 
-        customerRepository.save(drogo);
-        Customer dingo = new Customer("Dingo", "Avel", "123 Make Believe Street", "12345", "(123)4567890", SouthTexas);
-        SouthTexas.getCustomers().add(dingo);
-
-        customerRepository.save(dingo);
-        Customer dojo = new Customer("Dojo", "Adel", "123 Make Believe Street", "12345", "(123)4567890", SouthTexas);
-        SouthTexas.getCustomers().add(dojo);
-
-        customerRepository.save(dojo);
-
+            // Customer 5
+            Customer steph = new Customer();
+            steph.setFirstName("Dingo");
+            steph.setLastName("Lopez");
+            steph.setAddress("444 My House");
+            steph.setPostal_code("44444");
+            steph.setPhone("(444)1234567");
+            steph.setDivision(southTexas);
+            customerRepository.save(steph);
+        }
 
 
     }
+
 }
-*/
