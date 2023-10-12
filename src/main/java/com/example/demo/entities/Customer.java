@@ -9,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.math.BigInteger;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +16,8 @@ import java.util.Set;
 //Create Cart_item table with columns
 @Entity
 @Table(name = "customers")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Customer {
@@ -50,9 +51,6 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
-    //@Column(name = "division_id")
-    //private BigInteger division_id;
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer", fetch = FetchType.LAZY)
     private Set<Cart> carts = new HashSet<>();
 
@@ -60,15 +58,6 @@ public class Customer {
     @JoinColumn(name = "division_id", nullable = false)
     private Division division;
 
-/*
-    public Customer(String firstName, String lastName, String address, String postal_code, String phone, Division division){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.postal_code = postal_code;
-        this.phone = phone;
-        this.division = division;
-    } */
 
     public void add(Cart cart) {
 

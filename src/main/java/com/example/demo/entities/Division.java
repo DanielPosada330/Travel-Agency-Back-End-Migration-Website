@@ -2,7 +2,9 @@ package com.example.demo.entities;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,6 +16,8 @@ import java.util.Set;
 //Create Cart_item table with columns
 @Entity
 @Table(name = "divisions")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Division {

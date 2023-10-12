@@ -17,6 +17,8 @@ import java.util.Set;
 //Create Cart_item table with columns
 @Entity
 @Table(name = "carts")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Cart {
@@ -50,9 +52,6 @@ public class Cart {
     @Column(name  = "last_update")
     @UpdateTimestamp
     private Date last_update;
-
-    //@Column(name = "customer_id")
-    //private BigInteger customer_id;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;

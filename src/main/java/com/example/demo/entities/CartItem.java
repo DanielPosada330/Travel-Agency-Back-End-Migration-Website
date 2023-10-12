@@ -9,13 +9,14 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 
 //Create Cart_item table with columns
 @Entity
 @Table(name = "cart_items")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class CartItem {
@@ -42,9 +43,9 @@ public class CartItem {
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "cartitems")
-    /*@JoinTable(name = "excursion_cartitem",
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem",
             joinColumns = @JoinColumn(name = "cart_item_id"),
-            inverseJoinColumns = @JoinColumn(name = "excursion_id")) */
+            inverseJoinColumns = @JoinColumn(name = "excursion_id"))
     private Set<Excursion> excursions;
 }
