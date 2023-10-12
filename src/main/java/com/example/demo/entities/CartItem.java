@@ -34,11 +34,6 @@ public class CartItem {
     @UpdateTimestamp
     private Date last_update;
 
-    //@Column(name = "vacation_id")
-    //private BigInteger vacation_id;
-
-    //@Column(name = "cart_id")
-    //private BigInteger cart_id;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
@@ -52,8 +47,4 @@ public class CartItem {
             joinColumns = @JoinColumn(name = "cart_item_id"),
             inverseJoinColumns = @JoinColumn(name = "excursion_id")) */
     private Set<Excursion> excursions;
-
-
-
-
 }
