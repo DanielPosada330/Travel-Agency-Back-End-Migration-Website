@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import com.example.demo.dao.CartRepository;
-import com.example.demo.dao.CustomerRepository;
 import com.example.demo.dto.Purchase;
 import com.example.demo.dto.PurchaseResponse;
 import com.example.demo.entities.Cart;
@@ -17,13 +16,8 @@ import java.util.UUID;
 @Service
 public class CheckoutServiceImpl implements CheckoutService{
 
-    //private CustomerRepository customerRepository;
-
     private final CartRepository cartRepository;
 
-    //public CheckoutServiceImpl(CustomerRepository customerRepository){
-        //this.customerRepository = customerRepository;
-    //}
     @Autowired
     public CheckoutServiceImpl(CartRepository cartRepository){
         this.cartRepository = cartRepository;
