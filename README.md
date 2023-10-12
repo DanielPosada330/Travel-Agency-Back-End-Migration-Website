@@ -57,6 +57,7 @@ D.  Write code for the entities package that includes entity classes and the enu
 7) Countries.java, lines 37-39: Added OneToMany relationships between tables and classes.
 8) RestDataConfig.java, lines 3, 37-41: Changed import address and physical addresses.
 9) Carts.java, lines 38-42: Added enum designed to match the UML diagram and SQL database.
+10) Add @NoArgsConstructor and @AllArgsConstructor to each entity file.
 
 E.  Write code for the dao package that includes repository interfaces for the entities that extend JpaRepository, and add cross-origin support.
 1) Create Cart_itemsRepository.java interface in dao package.
@@ -67,15 +68,19 @@ E.  Write code for the dao package that includes repository interfaces for the e
 6) Create ExcursionsRepository.java interface in dao package.
 7) Create VacationsRepository.java interface in dao package.
 8) Add cross-origin support within each of the repository.java files.
+9) Add @RepositoryRestResource annotation to each repository file to ensure correct mapping.
 
 F.  Write code for the services package that includes each of the following:
 
 •   a purchase data class with a customer cart and a set of cart items
 1) Create Purchase.java data class that contains a customer, cart, and a set of cart items.
+
 •   a purchase response data class that contains an order tracking number
 1) Create PurchaseResponse.java data class that contains an order tracking number.
+
 •   a checkout service interface
 1) Create CheckoutService.java interface.
+
 •   a checkout service implementation class
 1) Create CheckoutServiceImpl.java class.
 2) Cart.java, lines 46, 67-77: Added column for status; added method for add to reflective changes in CheckoutServiceImpl.java
@@ -90,6 +95,7 @@ Note: You do not need to duplicate REST functionality for each repository by cre
 1) Create CheckoutController.java class in Controller Package that includes post mapping to place orders.
 
 I.  Add five sample customers to the application programmatically.
-
+1) Create BootStrapData.java file
+2) Add 5 unique customers to BootStrapData.java file to populate database.
 
 Note: Make sure the customer information is not overwritten each time you run the application.
