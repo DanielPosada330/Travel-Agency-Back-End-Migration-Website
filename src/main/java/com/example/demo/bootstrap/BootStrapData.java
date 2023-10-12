@@ -70,14 +70,14 @@ public class BootStrapData implements CommandLineRunner {
             customerRepository.save(drogo);
 
             // Customer 5
-            Customer steph = new Customer();
-            steph.setFirstName("Dingo");
-            steph.setLastName("Lopez");
-            steph.setAddress("444 My House");
-            steph.setPostal_code("44444");
-            steph.setPhone("(444)1234567");
-            steph.setDivision(southTexas);
-            customerRepository.save(steph);
+            Customer dingo = new Customer();
+            dingo.setFirstName("Dingo");
+            dingo.setLastName("Lopez");
+            dingo.setAddress("444 My House");
+            dingo.setPostal_code("44444");
+            dingo.setPhone("(444)1234567");
+            dingo.setDivision(southTexas);
+            customerRepository.save(dingo);
         }
 
 
